@@ -195,7 +195,6 @@ const char *GetRandomBotName( void )
 		"Saxton Hale",
 		"RageQuit",
 		"Screamin' Eagles",
-
 		"Ze Ubermensch",
 		"Maggot",
 		"CRITRAWKETS",
@@ -209,7 +208,6 @@ const char *GetRandomBotName( void )
 		"IvanTheSpaceBiker",
 		"I LIVE!",
 		"Cannon Fodder",
-
 		"trigger_hurt",
 		"Nom Nom Nom",
 		"Divide by Zero",
@@ -218,7 +216,6 @@ const char *GetRandomBotName( void )
 		"Tiny Baby Man",
 		"Big Mean Muther Hubbard",
 		"Force of Nature",
-
 		"Crazed Gunman",
 		"Grim Bloody Fable",
 		"Poopy Joe",
@@ -227,14 +224,34 @@ const char *GetRandomBotName( void )
 		"SMELLY UNFORTUNATE",
 		"The Administrator",
 		"Mentlegen",
-
 		"Archimedes!",
 		"Ribs Grow Back",
 		"It's Filthy in There!",
 		"Mega Baboon",
 		"Kill Me",
 		"Glorified Toaster with Legs",
-
+		"Pootis",
+		"The Sun is Leaking",
+		"rock005",
+		"Nom Nom Nom-nivore",
+		"Engineer Gaming",
+		"Scout Gaming",
+		"Soldier Gaming",
+		"Pyro Gaming",
+		"Demoman Gaming",
+		"Heavy Gaming",
+		"Medic Gaming",
+		"Sniper Gaming",
+		"Spy Gaming",
+		"The Madcap",
+		"Cower Fools!",
+		"Merasmus (Level Alyx)",
+		"Vanilla Crazy Cake",
+		"Wheatley Crab",
+		"Spycrab",
+		"The Defence", // Reference to Lazy Purples "How it feels to play Engineer"
+		"coconut.jpg",
+		"2fort Cow",
 		NULL
 	};
 	static int nameCount = 0;

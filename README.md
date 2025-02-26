@@ -37,6 +37,7 @@ TF2: Community Edition is, as the name implies, A version of TF2 which is ran by
   - [Windows](#windows)
   - [Linux](#linux)
 - [Licensing](#licensing)
+- [Credits](#credits)
 - [Contributing](#contributing)
 - [Useful Resources](#useful-resources)
 
@@ -97,6 +98,10 @@ There are multiple ways to set this repo up on your computer:
 This project is licenced under the `Source 1 SDK License`, more info can be found [here](LICENSE).
 
 This project also utilizes code from Third Party Sources, more info can be found [here](game/thirdpartylegalnotices.txt).
+
+# Credits
+- Source SDK by [Valve Software](https://github.com/ValveSoftware)
+- [List of Contributors](.github/CONTRIBUTORS.md)
 
 # Contributing
 Before you go and make A pull request, please make sure that your request follows our [Contributor Guidelines](.github/CONTRIBUTING.md).

@@ -47,6 +47,9 @@ TF2: Community Edition is, as the name implies, A version of TF2 which is ran by
 - [Python](https://www.python.org/downloads)
 ## For Windows Users
 - [Visual Studio Community 2022](https://visualstudio.microsoft.com/vs/community/)
+  - `MSVC v143 - VS 2022 C++ x64/x86 build tools (Latest)`
+  - `Windows 11 SDK (10.0.22621.0)` or `Windows 10 SDK (10.0.19041.1)`
+  - `C++ MFC for latest v143 build tools (x86 & x64)`
 ## For Linux Users
 - [podman](https://podman.io/)
 

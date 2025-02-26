@@ -16,7 +16,7 @@ $Project "Launcher Main (Mod TF)"
 {
     $Folder "Resource Files" [$WINDOWS]
     {
-        $File   "launcher_main_tf2ce.rc"
-        $File   "res\tf2ce.ico"
+        $File   "launcher_main_tf.rc"
+        $File   "res\tf.ico"
     }
 }

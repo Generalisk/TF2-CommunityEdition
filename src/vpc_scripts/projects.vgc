@@ -52,7 +52,7 @@ $Project "server"
 
 $Project "launcher_main"
 {
-	"launcher_main\launcher_main_tfce.vpc" [$TF]
+	"launcher_main\launcher_main_tf.vpc" [$TF]
 }
 
 $Project "mathlib"

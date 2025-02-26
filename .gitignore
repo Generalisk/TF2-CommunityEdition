@@ -55,6 +55,10 @@ tier1.*
 vgui_controls.*
 
 # Automatically Generated Source Files
+downloads/
+downloadlists/
+graphs/
+*.tmp
 *.cache
 config.cfg
 local_loadout.txt
@@ -62,3 +66,7 @@ server_blacklist.txt
 GameState.txt
 stats.txt
 voice_ban.dt
+settings.scr
+viewed.res
+ServerConfig.vdf
+tf2_playerstats.dmx

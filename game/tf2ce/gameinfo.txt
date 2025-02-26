@@ -42,6 +42,7 @@
 			game+game_write		|gameinfo_path|.
 			default_write_path	|gameinfo_path|.
 
+			game+mod+vgui		|gameinfo_path|paks/tf_content.vpk
 			game_lv			|appid_440|tf/tf2_lv.vpk
 			game+mod+vgui		|appid_440|tf/tf2_misc.vpk
 			game+mod		|appid_440|tf/tf2_textures.vpk

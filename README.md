@@ -18,9 +18,9 @@
   [![Discord Server](https://img.shields.io/discord/1343991748019359795)](https://discord.gg/nZBsxVyxhY)
 </div>
 
-<div align="center" style="font-size:24px">
+<div align="center">
   
-  # Team Fortress 2: Community Edition
+  ![TF2 Community Edition Logo](https://raw.githubusercontent.com/Generalisk/TF2-CommunityEdition/refs/heads/master/.github/images/tf2ce_logo.png)
 </div>
 
 TF2: Community Edition is, as the name implies, A version of TF2 which is ran by the community. This project is meant to be A open source effort so anyone (including you) can make your own updates, ranging from simple bug fixes to new features to even new content such as maps & weapons.
@@ -54,6 +54,8 @@ There are multiple ways to set this repo up on your computer:
 - At the top of the Repos' home page, click on the green button labeled `Code`.
 - At the bottom of the panel that just popped up, click on the button labaled `Download ZIP`.
 - Once the zip file has finished downloading, extract the contents wherever you want.
+
+![Github Screenshot](https://raw.githubusercontent.com/Generalisk/TF2-CommunityEdition/refs/heads/master/.github/images/setup-github.png)
 - *Please note that you will not be able to push commits/pull requests through directly if you use this method.*
 ## Method 2
 ### This method requires [Git](https://git-scm.com/downloads) to be installed!
@@ -67,6 +69,8 @@ There are multiple ways to set this repo up on your computer:
 - Go to the URL tab.
 - Enter `Generalisk/TF2-CommunityEdition` into the box and set the local path to wherever you want.
 
+![Github Desktop Screenshot](https://raw.githubusercontent.com/Generalisk/TF2-CommunityEdition/refs/heads/master/.github/images/setup-github-desktop.png)
+
 # Compiling
 ## Windows
 - Inside the `src` directory, run:
@@ -76,6 +80,8 @@ There are multiple ways to set this repo up on your computer:
 - Open `everything.sln` inside of Visual Studio.
 - Set the build mode to `Release`.
   - Building the project in `Debug` mode is very unstable and is highly unrecommended.
+  
+![Visual Studio Screenshot](https://raw.githubusercontent.com/Generalisk/TF2-CommunityEdition/refs/heads/master/.github/images/compilation-vs.png)
 - Go to `Build > Build Solution` in the top menu bar or press `Ctrl+Shift+B`.
 - **(Optional)** Click on the `Local Windows Debugger` button which is accompanied by A green play button to begin Debugging inside of Visual Studio.
 - *For additional help, check [this YouTube tutorial](https://youtu.be/7CG3kLdQSRY&t=327s).*

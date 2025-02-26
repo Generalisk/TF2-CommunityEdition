@@ -127,6 +127,10 @@
 #include "mumble.h"
 #include "steamshare.h"
 #include "vgui_controls/BuildGroup.h"
+#ifdef DISCORD_RPC_ENABLED
+#include "discord_rpc.h"
+#include <time.h>
+#endif
 
 #include "secure_command_line.h"
 
@@ -334,6 +338,11 @@ void DispatchHudText( const char *pszName );
 static ConVar s_CV_ShowParticleCounts("showparticlecounts", "0", 0, "Display number of particles drawn per frame");
 static ConVar s_cl_team("cl_team", "default", FCVAR_USERINFO|FCVAR_ARCHIVE, "Default team when joining a game");
 static ConVar s_cl_class("cl_class", "default", FCVAR_USERINFO|FCVAR_ARCHIVE, "Default class when joining a game");
+
+#ifdef DISCORD_RPC_ENABLED
+static ConVar cl_discord_appid("cl_discord_appid", "1343902344869576704", FCVAR_DEVELOPMENTONLY | FCVAR_CHEAT);
+static int64_t startTimestamp = time(0);
+#endif
 
 #ifdef HL1MP_CLIENT_DLL
 static ConVar s_cl_load_hl1_content("cl_load_hl1_content", "0", FCVAR_ARCHIVE, "Mount the content from Half-Life: Source if possible");
@@ -849,6 +858,44 @@ bool IsEngineThreaded()
 	return false;
 }
 
+#ifdef DISCORD_RPC_ENABLED
+//-----------------------------------------------------------------------------
+// Discord RPC
+//-----------------------------------------------------------------------------
+static void HandleDiscordReady(const DiscordUser* connectedUser)
+{
+	DevMsg("Discord: Connected to user %s#%s - %s\n",
+		connectedUser->username,
+		connectedUser->discriminator,
+		connectedUser->userId);
+}
+
+static void HandleDiscordDisconnected(int errcode, const char* message)
+{
+	DevMsg("Discord: Disconnected (%d: %s)\n", errcode, message);
+}
+
+static void HandleDiscordError(int errcode, const char* message)
+{
+	DevMsg("Discord: Error (%d: %s)\n", errcode, message);
+}
+
+static void HandleDiscordJoin(const char* secret)
+{
+	// Not implemented
+}
+
+static void HandleDiscordSpectate(const char* secret)
+{
+	// Not implemented
+}
+
+static void HandleDiscordJoinRequest(const DiscordUser* request)
+{
+	// Not implemented
+}
+#endif
+
 //-----------------------------------------------------------------------------
 // Constructor
 //-----------------------------------------------------------------------------
@@ -1116,6 +1163,38 @@ int CHLClient::Init( CreateInterfaceFn appSystemFactory, CreateInterfaceFn physi
 		RegisterSecureLaunchProcessFunc( pfnUnsafeCmdLineProcessor );
 	}
 
+#ifdef DISCORD_RPC_ENABLED
+	// Discord RPC
+	DiscordEventHandlers handlers;
+	memset(&handlers, 0, sizeof(handlers));
+
+	handlers.ready = HandleDiscordReady;
+	handlers.disconnected = HandleDiscordDisconnected;
+	handlers.errored = HandleDiscordError;
+	handlers.joinGame = HandleDiscordJoin;
+	handlers.spectateGame = HandleDiscordSpectate;
+	handlers.joinRequest = HandleDiscordJoinRequest;
+
+	char appid[255];
+	sprintf(appid, "%d", engine->GetAppID());
+	Discord_Initialize(cl_discord_appid.GetString(), &handlers, 1, appid);
+
+	if (!g_bTextMode)
+	{
+		DiscordRichPresence discordPresence;
+		memset(&discordPresence, 0, sizeof(discordPresence));
+
+		discordPresence.state = "In-Game";
+		discordPresence.details = "Main Menu";
+		discordPresence.startTimestamp = startTimestamp;
+		discordPresence.largeImageKey = "GameLogo";
+		discordPresence.largeImageText = "Team Fortress 2 Logo";
+		discordPresence.smallImageKey = "";
+		discordPresence.smallImageText = "";
+		Discord_UpdatePresence(&discordPresence);
+	}
+#endif
+
 	return true;
 }
 
@@ -1236,6 +1315,11 @@ void CHLClient::Shutdown( void )
 	
 	gHUD.Shutdown();
 	VGui_Shutdown();
+
+#ifdef DISCORD_RPC_ENABLED
+	// Discord RPC
+	Discord_Shutdown();
+#endif
 	
 	ParticleMgr()->Term();
 	
@@ -1664,6 +1748,25 @@ void CHLClient::LevelInitPreEntity( char const* pMapName )
 	// Check low violence settings for this map
 	g_RagdollLVManager.SetLowViolence( pMapName );
 
+#ifdef DISCORD_RPC_ENABLED
+	// Discord RPC
+	if (!g_bTextMode)
+	{
+		DiscordRichPresence discordPresence;
+		memset(&discordPresence, 0, sizeof(discordPresence));
+
+		char buffer[256];
+		discordPresence.state = "In-Game";
+		sprintf(buffer, "Map: %s", pMapName);
+		discordPresence.details = buffer;
+		discordPresence.largeImageKey = pMapName;
+		discordPresence.largeImageText = pMapName;
+		discordPresence.smallImageKey = "GameLogo";
+		discordPresence.smallImageText = "Team Fortress 2 Logo";
+		Discord_UpdatePresence(&discordPresence);
+	}
+#endif
+
 	gHUD.LevelInit();
 
 #if defined( REPLAY_ENABLED )
@@ -1751,6 +1854,24 @@ void CHLClient::LevelShutdown( void )
 	StopAllRumbleEffects();
 
 	gHUD.LevelShutdown();
+
+#ifdef DISCORD_RPC_ENABLED
+	// Discord RPC
+	if (!g_bTextMode)
+	{
+		DiscordRichPresence discordPresence;
+		memset(&discordPresence, 0, sizeof(discordPresence));
+
+		discordPresence.state = "In-Game";
+		discordPresence.details = "Main Menu";
+		discordPresence.startTimestamp = startTimestamp;
+		discordPresence.largeImageKey = "GameLogo";
+		discordPresence.largeImageText = "Team Fortress 2 Logo";
+		discordPresence.smallImageKey = "";
+		discordPresence.smallImageText = "";
+		Discord_UpdatePresence(&discordPresence);
+	}
+#endif
 
 	internalCenterPrint->Clear();
 

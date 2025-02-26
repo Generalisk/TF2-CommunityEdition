@@ -38,6 +38,7 @@ $Configuration
 		$PreprocessorDefinitions			"$BASE;COMPILER_MSVC32" [$WIN32]		
 		$PreprocessorDefinitions			"$BASE;COMPILER_MSVC;_DLL_EXT=$_DLL_EXT"
 		$PreprocessorDefinitions			"$BASE;DLLNAME=$OUTBINNAME"		
+		$PreprocessorDefinitions			"$BASE;DISCORD_RPC_ENABLED"
 	}
 
 	$Compiler [$WIN32]
@@ -141,6 +142,7 @@ $Project
 		$Implib	"$LIBPUBLIC\tier0"
 		$Lib	"$LIBPUBLIC\tier1"
 		$Implib	"$LIBPUBLIC\vstdlib"
+		$Implib "$LIBPUBLIC\discord-rpc"
 	}
 }
 

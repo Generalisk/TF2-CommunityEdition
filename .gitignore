@@ -53,3 +53,12 @@ mathlib.*
 raytrace.*
 tier1.*
 vgui_controls.*
+
+# Automatically Generated Source Files
+*.cache
+config.cfg
+local_loadout.txt
+server_blacklist.txt
+GameState.txt
+stats.txt
+voice_ban.dt

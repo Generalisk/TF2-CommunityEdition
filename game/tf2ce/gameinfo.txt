@@ -1,9 +1,9 @@
 "GameInfo"
 {
-	game				"Team Fortress 2: Community Edition"
-	type				multiplayer_only
+	game			"Team Fortress 2: Community Edition"
+	type			multiplayer_only
 
-	developer			"TF2 Community"
+	developer		"TF2 Community"
 	developer_url		"https://discord.gg/nZBsxVyxhY"
 
 	hidden_maps
@@ -13,16 +13,16 @@
 
 	DependsOnAppID		440	// Team Fortress 2
 
-	nomodels			1
-	nocrosshair			0
+	nomodels		1
+	nocrosshair		0
 	advcrosshair		1
-	nodegraph			0
-	gamedata			"tf2ce.fgd"
+	nodegraph		0
+	gamedata		"tf2ce.fgd"
 	instancepath		"mapsrc/instances/"
 	additionallocalization	"tf"
 
-	supportsdx8			1	// Although TF2 CAN be run on DirectX 8, doing so is unrecommended
-	supportsvr			0	// Something we may try to add in the future...
+	supportsdx8		1	// Although TF2 CAN be run on DirectX 8, doing so is unrecommended
+	supportsvr		0	// Something we may try to add in the future...
 	suportsxbox360		0	// This feature is made redundant by Steam Input
 	replayrequired		1
 
@@ -45,18 +45,18 @@
 			game+mod+vgui		|gameinfo_path|paks/tf_content.vpk
 			game_lv			|appid_440|tf/tf2_lv.vpk
 			game+mod+vgui		|appid_440|tf/tf2_misc.vpk
-			game+mod			|appid_440|tf/tf2_textures.vpk
-			game+mod			|appid_440|tf/tf2_sound_misc.vpk
-			game+mod			|appid_440|tf/tf2_sound_vo_english.vpk
-			game				|appid_243750|hl2/hl2_misc.vpk
-			game				|appid_243750|hl2/hl2_textures.vpk
-			game				|appid_243750|hl2/hl2_sound_misc.vpk
-			game				|appid_243750|hl2/hl2_sound_vo_english.vpk
+			game+mod		|appid_440|tf/tf2_textures.vpk
+			game+mod		|appid_440|tf/tf2_sound_misc.vpk
+			game+mod		|appid_440|tf/tf2_sound_vo_english.vpk
+			game			|appid_243750|hl2/hl2_misc.vpk
+			game			|appid_243750|hl2/hl2_textures.vpk
+			game			|appid_243750|hl2/hl2_sound_misc.vpk
+			game			|appid_243750|hl2/hl2_sound_vo_english.vpk
 			platform+vgui		|appid_243750|platform/platform_misc.vpk
 
-			game				|appid_440|tf
-			game				|appid_243750|hl2
-			platform			|appid_243750|platform
+			game			|appid_440|tf
+			game			|appid_243750|hl2
+			platform		|appid_243750|platform
 
 			game+download		|gameinfo_path|downloads
 		}
